@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "d534a183-3edb-4eef-b72d-6be0baa471b2",
+		"name": "Solar Arrays",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get note from Denise",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{newBaseUrl}}/denise",
+					"host": [
+						"{{newBaseUrl}}"
+					],
+					"path": [
+						"denise"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Access Solar Arrays Config",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.collectionVariables.set(\"icon_name\", \"security\");"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{newBaseUrl}}/:icon",
+					"host": [
+						"{{newBaseUrl}}"
+					],
+					"path": [
+						":icon"
+					],
+					"variable": [
+						{
+							"key": "icon",
+							"value": "{{icon_name}}"
+						}
+					]
+				},
+				"description": "Denise fixed the solar arrays, but now she has to go talk to Jacqueline about repairing their truss. It's very important because the truss holds the solar arrays, radiators, and robotic arm.\n\nWhen you're ready to submit the Solar Arrays data, send it over as a path variable under the `icon` key."
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "newBaseUrl",
+			"value": "https://e8999dc0-f21a-453b-b14b-0e497f8eb0b7.mock.pstmn.io"
+		},
+		{
+			"key": "icon_name",
+			"value": ""
+		}
+	]
+}
